@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+</head>
+<body>
+  <h2>Login Form</h2>
+  <form id="loginForm" onsubmit="return validateLogin(event)">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br><br>
+    <button type="submit">Login</button>
+  </form>
+  <p id="message"></p>
+
+  <script>
+    const VALID_USERNAME = "admin";
+    const VALID_PASSWORD = "admin123";
+
+    function validateLogin(event) {
+      event.preventDefault();
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      const msg = document.getElementById("message");
+
+      if (user === VALID_USERNAME && pass === VALID_PASSWORD) {
+        msg.textContent = "Login successful! Redirecting...";
+        msg.style.color = "green";
+      } else {
+        msg.textContent = "Invalid credentials.";
+        msg.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
